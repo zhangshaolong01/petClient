@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "健康生活 < 关于"
+  "navigationBarTitleText": "关于",
+  "enablePullDownRefresh": false
 }

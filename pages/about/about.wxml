@@ -1,9 +1,15 @@
-<view class="photo_view">
-    <image class="photo" src="../../images/photo.jpg" mode="aspectFill"></image>
+<view class="weapp-about">
+    <view style="height: 350px;align-items: center;">
+      <image style="height:100%;width: 100%;" src="{{headImageUrl}}" mode="aspectFill"></image>
+    </view>
+    <view class="weapp-name">魔兽世界宠物助手V1.0.0</view>
+    <view class="webapp-bottom-item">
+        <view class="webapp-intro-title">
+          <text>联系作者 : QQ 50495193</text>
+        </view>
+        <view class="webapp-intro-content">
+                数据来源于NGA,178及网上收集等.
+        </view>
+    </view>
 </view>
-<view class="name">
-    <text class="text">联系邮箱：</text>
-</view>
-<view class="email">
-    <text class="email_text">bluedai180@gmail.com</text>
-</view>
+ 

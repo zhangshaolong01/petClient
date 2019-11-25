@@ -1,0 +1,38 @@
+<!-- 搜索 -->
+<view class="search">
+  <view class="search_input">
+    <input bindinput="bindNameCnInput" placeholder-style="color:gray" placeholder="请输入名称" />
+  </view>
+  <view style="position: absolute;top: 1rpx;right: 16%;">
+    <selector bind:petTypeSelectEvent="bindPetTypeSelect" selectData="{{position}}"></selector>
+  </view>
+  <view class="search_button">
+    <button bindtap="queryPetList" hover-class="button-hover">查询</button>
+  </view>
+</view>
+
+<!-- 表格  -->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th" style="width: 40%;">宠物名</view>
+    <view class="th" style="width: 20%;">宠物类型</view>
+    <view class="th" style="width: 20%;">来源</view>
+    <view class="th" style="width: 20%;">装笼</view>
+  </view>
+  <view>
+    <block wx:for="{{data}}" wx:key="{{ID}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}" bindtap="openDetail" data-id='{{item.id}}'>
+        <view class="td" style="width: 40%;">{{item.petNameCn}}</view>
+        <view class="td" style="width: 20%;">{{item.petType}}</view>
+        <view class="td" style="width: 30%;">{{item.sourceType}}</view>
+        <view class="td" style="width: 10%;">{{item.isCage}}</view>
+      </view>
+      <view class="tr" wx:else bindtap="openDetail" data-id='{{item.id}}'>
+        <view class="td" style="width: 40%;">{{item.petNameCn}}</view>
+        <view class="td" style="width: 20%;">{{item.petType}}</view>
+        <view class="td" style="width: 30%;">{{item.sourceType}}</view>
+        <view class="td" style="width: 10%;">{{item.isCage}}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,35 +1,29 @@
-<view class="container">
+<view class="container" style="text-align: center;">
+    <!--
     <view class="slide">
-        <swiper indicator-dots="true" autoplay="true" interval="8000" duration="1000">
-            <block wx:for="{{imgUrls}}">
-                <swiper-item>
-                    <image src="{{item}}" class="slide-image" width="355" height="150" mode="aspectFill"/>
-                </swiper-item>
-            </block>
-        </swiper>
+        <image src="{{imgUrl}}" class="slide-image" width="355" height="150" mode="aspectFill"/>
     </view>
-
-    <view class="describe">
-        <text></text>
-    </view>
-    <view class="board">
-        <navigator url="../list/list?type=list" hover-class="none">
-            <view class="board-item">
-                <text>生活贴士</text>
-                <image class= "images" src="../../images/arrowright.png" mode="aspectFill"></image>
+    -->
+    <view class="fd-bd">
+      <view class="fd-bd-person">
+          <!-- 表格  -->
+          <view class="table">
+            <view class="tr bg-w">
+              <view class="th" style="width: 25%;">类型</view>
+              <view class="th" style="width: 75%;">被动特效</view>
             </view>
-        </navigator>
-        <navigator url="../list/list" hover-class="none">
-            <view class="board-item">
-                <text>健康知识</text>
-                <image class= "images" src="../../images/arrowright.png" mode="aspectFill"></image>
+            <view>
+              <block wx:for="{{petTypeList}}" wx:key="{{ID}}">
+                <view class="tr" data-id='{{item.typeId}}'>
+                  <view class="td" style="width: 25%;">
+                    <image class= "images" src="{{petTypeImageUrl + item.typeImage}}" mode="aspectFill"></image>
+                    <text>{{item.typeName}}</text>
+                  </view>
+                  <view class="td" style="width: 75%;text-align: left;">{{item.speciallyEffect}}</view>
+                </view>
+              </block>
             </view>
-        </navigator>
-        <navigator url="../list/list" hover-class="none">
-            <view class="board-item">
-                <text>健康菜谱</text>
-                <image class= "images" src="../../images/arrowright.png" mode="aspectFill"></image>
-            </view>
-        </navigator>
-    </view>
+          </view> 
+      </view>
+  </view>
 </view>

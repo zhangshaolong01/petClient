@@ -1,15 +1,45 @@
+//获取应用实例
+const app = getApp();
 Page({
   data:{
     // text:"这是一个页面"
-    imgUrls:[
-        'http://zxpic.gtimg.com/infonew/0/wechat_pics_-214279.jpg/168',
-        'http://zxpic.gtimg.com/infonew/0/wechat_pics_-214521.jpg/168'
-    ]
+    imgUrl: app.globalData.serviceUrl + "image/pet_diagrams.jpg",
+    petTypeImageUrl: app.globalData.serviceUrl + "image/pet_type/",
+    petTypeList:''
   },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-    // this.setData({ imgUrls:[] })
+    var that = this;
+    that.queryPetType({});
   },
+
+  /**
+     * 查询列表
+     */
+  queryPetType: function (options) {
+    var that = this;
+    var jssiJson = require("../../utils/jssiJson");
+    var queryUrl = "/petType/list";
+    var param = {};
+    jssiJson.syncAjaxPost(
+      param,
+      queryUrl,
+      that.queryPetTypeCallback
+    );
+  },
+
+  /**
+ * 查询详情回调函数
+ */
+  queryPetTypeCallback: function (res) {
+    var that = this;
+    if (res && res.statusCode == 200) {
+      that.setData({
+        //将接口返回的数据data赋值给data
+        petTypeList: res.data.msg
+      })
+    }
+  },
+
   onReady:function(){
     // 页面渲染完成
   },

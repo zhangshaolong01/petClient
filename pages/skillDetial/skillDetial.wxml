@@ -1,0 +1,52 @@
+<view class="container">
+    <block wx:if="{{showLoading}}">
+        <view class="loading">玩命加载中…</view>
+    </block>
+    <block wx:elif="{{showContent}}">
+      <view class="fd-hd">
+            <view class="fd-intro-image">
+              <image src="{{skillDetail.image}}" class="fd-cover"></image>
+            </view>
+            <view class="fd-intro">
+                <view class="table">
+                  <view class="tr" style="height:35rpx">
+                    <view class="td" style="text-align: left;width: 50%;color:#FFD200">{{skillDetail.skillName}}</view>
+                    <view class="td" style="text-align: right;width: 50%;">ID：{{skillDetail.skillId}}</view>
+                  </view>
+                  <view class="tr" style="height:35rpx">
+                    <view class="td" style="text-align: left;width: 50%;">{{skillDetail.skillType}}</view>
+                  </view>
+                </view>
+                <view style="position: relative;bottom: -55px;margin-right: 10rpx;margin-left: 10rpx;">
+                  <view class="fd-intro-txt" ><view style="color:#FFD200">命中 : </view>{{skillDetail.hitAccuracy}}</view>
+                  <view class="fd-intro-txt" style="color: #e5cc80!important;">{{skillDetail.memo?skillDetail.memo:''}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="fd-bd">
+            <view class="fd-bd-title">战斗宠物</view>
+            <view class="fd-bd-person">
+                <!-- 表格  -->
+                <view class="table">
+                  <view class="tr bg-w">
+                    <view class="th" style="width: 50%;">名称</view>
+                    <view class="th" style="width: 35%;">类型</view>
+                    <view class="th" style="width: 15%;">等级</view>
+                  </view>
+                  <view>
+                    <block wx:for="{{skillPetList}}" wx:key="{{ID}}">
+                      <view class="tr" data-id='{{item.petId}}'>
+                        <view class="td" style="width: 50%;text-align: left;">
+                          {{item.petNameCn}}
+                        </view>
+                        <view class="td" style="width: 35%;">{{item.petType}}</view>
+                        <view class="td" style="width: 15%;">{{item.level}}</view>
+                      </view>
+                    </block>
+                  </view>
+                </view> 
+            </view>
+        </view>
+</view>
+
